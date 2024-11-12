@@ -24,9 +24,7 @@ app.use(authMiddleware);
 const startServer = async () => {
   const server = new ApolloServer({
     schema,
-    context: ({ req }) => {
-      console.log("req", req);
-    },
+    context: ({ req }) => ({ employee: req.employee }),
   });
 
   try {

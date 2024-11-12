@@ -23,7 +23,7 @@ const authMiddleware = (req, res, next) => {
       throw new Error("Authorization token missing");
     }
   } catch (error) {
-    console.error("Authorization error:", error.name);
+    console.error("Authorization error:", error);
     if (error.name === "TokenExpiredError") {
       res.status(401).json({ error: "TokenExpired" });
     } else {
